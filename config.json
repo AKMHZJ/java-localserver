@@ -1,0 +1,30 @@
+{
+  "servers": [
+    {
+      "host": "localhost",
+      "port": 8080,
+      "server_name": "server_one",
+      "root": "./www",
+      "default_file": "index.html",
+      "error_pages": {
+        "404": "./error_pages/404.html",
+        "500": "./error_pages/500.html"
+      },
+      "client_max_body_size": 1048576,
+      "routes": {
+        "/": {
+          "methods": ["GET", "POST"],
+          "directory_listing": true
+        },
+        "/upload": {
+          "methods": ["POST", "PUT"],
+          "upload_path": "./www/uploads"
+        },
+        "/cgi-bin": {
+          "methods": ["GET", "POST"],
+          "cgi_extension": ".py"
+        }
+      }
+    }
+  ]
+}
